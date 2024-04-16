@@ -92,3 +92,11 @@ Realize classic RESTful API's for employee management:
   
 
 Output should be `JSON`
+
+### Thoughts
+
+We know that you don't want to spent ages on this task. But please tell us what you would have done different/additionally if this would have been a real work task scenario. We're really curious about your thoughts
+
+---
+
+- Global Exception error for model not found instead of doing find method and throwing exception error

@@ -50,9 +50,8 @@ class ImportEmployees
                 ];
 
                 if ($this->isDuplicateEmail($rowData['email'])) {
-                    // Log or handle duplicate email as needed
                     info("Duplicate email found: " . $rowData['email']);
-                    continue; // Skip this row
+                    continue; 
                 }
 
                 Employee::create($employeeData);
@@ -96,12 +95,10 @@ class ImportEmployees
     {
         $uniqueEmployeeId = $baseEmployeeId;
         
-        // Check if the employee id already exists
         $count = Employee::where('employee_id', $uniqueEmployeeId)->count();
 
-        // If employee id already exists, append a number to make it unique
         if ($count > 0) {
-            $rowNumber = $count + 1; // Add 1 to the count to generate a new unique id
+            $rowNumber = $count + 1;
             $uniqueEmployeeId = $baseEmployeeId . $rowNumber;
         }
 
@@ -110,7 +107,6 @@ class ImportEmployees
 
     private function isDuplicateEmail($email)
     {
-        // Check if the email already exists in the database
         return Employee::where('email', $email)->exists();
     }
 }
